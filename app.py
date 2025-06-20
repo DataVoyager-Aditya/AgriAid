@@ -10,6 +10,7 @@ import json
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+import sys
 
 app = Flask(__name__)
 app.secret_key = 'agriaid_secret_key_2025'
@@ -328,7 +329,12 @@ def sitemap():
 
 
 
-# DO NOT run the Flask server if inside Streamlit
-if __name__ == '__main__' and "STREAMLIT_SERVER" not in os.environ:
+# import sys
+
+def is_running_in_streamlit():
+    return any('streamlit' in arg.lower() for arg in sys.argv)
+
+if __name__ == '__main__' and not is_running_in_streamlit():
     app.run(host='0.0.0.0', port=5000, debug=False)
+
 
