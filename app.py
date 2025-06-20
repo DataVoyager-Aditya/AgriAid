@@ -328,5 +328,7 @@ def sitemap():
 
 
 
-if __name__ == '__main__':
+# DO NOT run the Flask server if inside Streamlit
+if __name__ == '__main__' and "STREAMLIT_SERVER" not in os.environ:
     app.run(host='0.0.0.0', port=5000, debug=False)
+
