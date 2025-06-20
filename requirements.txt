@@ -36,8 +36,4 @@ rpds-py==0.25.1
 six==1.17.0
 tenacity==9.1.2
 toml==0.10.2
-<<<<<<< HEAD
 tzdata==2025.2
-=======
-tzdata==2025.2
->>>>>>> 0bbde28e6bb086acf731dbf7cf4fa193b0409bf5
