@@ -331,10 +331,17 @@ def sitemap():
 
 # import sys
 
-def is_running_in_streamlit():
-    return any('streamlit' in arg.lower() for arg in sys.argv)
+# import sys
 
-if __name__ == '__main__' and not is_running_in_streamlit():
-    app.run(host='0.0.0.0', port=5000, debug=False)
+def is_streamlit():
+    return any("streamlit" in arg.lower() for arg in sys.argv)
+
+if __name__ == "__main__":
+    if not is_streamlit():
+        print("🚀 Starting Flask server...")
+        app.run(host="0.0.0.0", port=5000, debug=False)
+    else:
+        print("🛑 Detected Streamlit environment — Flask server not started.")
+
 
 
